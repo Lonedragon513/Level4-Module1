@@ -41,11 +41,13 @@ public class IntroToGenerics {
 class SomeClass<AnotherTemplate>{
 	//Here the t variable can be any object type
 	AnotherTemplate t;
-	
+
 	//Here the t2t variable can be any object type
 	SomeClass(AnotherTemplate t2){
 		this.t = t2;
+		System.out.println(t);
 	}
+
 }
 
 
