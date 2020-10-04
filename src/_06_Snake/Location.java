@@ -1,5 +1,7 @@
 package _06_Snake;
 
+import javax.swing.JOptionPane;
+
 public class Location {
 	public int x;
 	public int y;
@@ -12,6 +14,7 @@ public class Location {
 	public boolean equals(Location loc) {
 		if(x == loc.x && y == loc.y) {
 			return true;
+		
 		}
 		return false;
 	}
