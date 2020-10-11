@@ -35,17 +35,24 @@ public class Snake {
 
 	public void update() {
 		//1. use a switch statement to check on the currentDirection
-		//   of the snake and calculate its next x and y position.
-		Location location = getHeadLocation();
+		//   of the snake and calculate its next x and y position.		
+		int newx = 0;
+		int newy = 0;
 		switch(currentDirection) {
 		case UP:
-			location.y-=1;
+			newy-=1;
+			break;
 		case DOWN: 
-			location.y+=1;
+			newy+=1;
+			break;
 		case LEFT:
-			location.x-=1;
+			newx-=1;
+			break;
 		case RIGHT:
-			location.x+=1;
+			newx+=1;
+			break;
+			
+	
 		}
 
 		//2. Iterate through the SnakeSegments in reverse order
@@ -56,7 +63,8 @@ public class Snake {
 		}
 		
 		//3. set the location of the head to the new location calculated in step 1
-		head.setLocation(location);
+
+		head.setLocation(new Location(head.getLocation().x+newx,head.getLocation().y+newy) );
 		//4. set canMove to true
 		canMove=true;
 	}
@@ -68,30 +76,28 @@ public class Snake {
 		switch(d) {
 		case LEFT:
 			if(currentDirection != Direction.RIGHT && canMove) {
+				System.out.println("LEft");
 				currentDirection = d;
 				canMove = false;
 			}
 			break;
 		case RIGHT:
 			if(currentDirection != Direction.LEFT && canMove) {
+				System.out.println("Right");
 				currentDirection = d;
 				canMove = false;
 			}
 			break;
 		case UP:
 			if(currentDirection != Direction.DOWN && canMove) {
+				System.out.println("up");
 				currentDirection = d;
 				canMove = false;
 			}
 			break;
 		case DOWN:
+			System.out.println("down");
 			if(currentDirection != Direction.UP && canMove) {
-				currentDirection = d;
-				canMove = false;
-			}
-			break;
-		default:
-			if(canMove) {
 				currentDirection = d;
 				canMove = false;
 			}
